@@ -1,0 +1,771 @@
+:root {
+    --color-primary: #4B69FD;
+    --color-secondary: #FFF9EB;
+    --color-tertiary: #C4C4C4;
+    --color-button: #fe652b;
+    --color-button-hover: #e55720;
+    --color-text: #444444;
+    --color-white: #FFFFFF;
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f5f0ff 0%, #e8d9f3 100%);
+    margin: 0;
+    padding: 0;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        align-items: flex-start;
+    }
+    
+    .main-content {
+        width: 95vw;
+        min-height: 95vh;
+        height: auto;
+        padding: 15px;
+    }
+    
+    .name-list {
+        max-height: none;
+    }
+}
+
+.main-content {
+    width: 85vw;
+    height: auto;
+    min-height: 85vh;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(106, 13, 173, 0.15);
+    border: 2px solid #d1c4e9;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 15px;
+        margin: 0 5px;
+        border-radius: 6px;
+    }
+}
+
+/* Banner */
+.header-banner {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 25px 0;
+    background: linear-gradient(135deg, #9370db, #6a0dad);
+    border-radius: 10px;
+    color: white;
+    margin: -20px -20px 20px -20px;
+    position: relative;
+    height: 140px;
+    flex-shrink: 0;
+}
+
+.main-title {
+    font-family: 'Merriweather', serif;
+    font-size: 2.6em;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    margin: 20px 0 0 0;
+    z-index: 10;
+    position: relative;
+}
+
+/* Animación simple y bonita de corazones flotantes */
+.magic-hand {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.secret-animation {
+    position: relative;
+    width: 150px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.floating-hearts {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2.5em;
+    animation: floatHeart 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(147, 112, 219, 0.3));
+}
+
+.heart-1 {
+    left: 10px;
+    top: 20px;
+    animation-delay: 0s;
+}
+
+.heart-2 {
+    left: 60px;
+    top: 10px;
+    animation-delay: 1s;
+}
+
+.heart-3 {
+    left: 110px;
+    top: 25px;
+    animation-delay: 2s;
+}
+
+@keyframes floatHeart {
+    0%, 100% { 
+        transform: translateY(0px) scale(1); 
+        opacity: 0.8;
+    }
+    50% { 
+        transform: translateY(-15px) scale(1.1); 
+        opacity: 1;
+    }
+}
+
+/* Sobres con estilo de líneas */
+.envelope {
+    position: absolute;
+    width: 60px;
+    height: 45px;
+    animation: floatEnvelope 4s ease-in-out infinite;
+}
+
+.envelope-1 {
+    left: 5px;
+    top: 25px;
+    animation-delay: 0s;
+}
+
+.envelope-2 {
+    left: 80px;
+    top: 10px;
+    animation-delay: 1.3s;
+}
+
+.envelope-3 {
+    left: 155px;
+    top: 30px;
+    animation-delay: 2.6s;
+}
+
+/* Cuerpo del sobre - estilo outline */
+.envelope-body {
+    width: 60px;
+    height: 40px;
+    background: #ffffff;
+    border: 3px solid #333333;
+    border-radius: 0;
+    position: relative;
+    box-shadow: none;
+    overflow: visible;
+}
+
+/* Solapa triangular - estilo líneas */
+.envelope-top {
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 33px solid transparent;
+    border-right: 33px solid transparent;
+    border-bottom: 25px solid #ffffff;
+    z-index: 1;
+    animation: openEnvelope 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+/* Borde de la solapa */
+.envelope-top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -33px;
+    width: 0;
+    height: 0;
+    border-left: 33px solid transparent;
+    border-right: 33px solid transparent;
+    border-bottom: 25px solid #333333;
+    z-index: -1;
+}
+
+/* Líneas internas del sobre */
+.envelope-body::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    height: 2px;
+    background: #e0e0e0;
+    box-shadow: 0 6px 0 #e0e0e0, 0 12px 0 #e0e0e0;
+}
+
+/* Carta que sale */
+.envelope-body::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 40px;
+    height: 25px;
+    background: #ffffff;
+    border: 2px solid #ff69b4;
+    border-radius: 2px;
+    transform: translateY(0);
+    animation: letterReveal 4s ease-in-out infinite;
+    z-index: 2;
+}
+
+/* Corazón en la carta */
+.heart {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    font-size: 18px;
+    z-index: 4;
+    animation: revealHeart 4s ease-in-out infinite;
+}
+
+.heart::before {
+    content: '�';
+    display: block;
+    filter: none;
+}
+
+/* Brillos mágicos más grandes y mejor distribuidos */
+.sparkles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #ffd700 0%, #ffed4e 40%, rgba(255, 237, 78, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    animation: sparkleAnimation 3s ease-in-out infinite;
+    box-shadow: 0 0 12px #ffd700, 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.sparkle-1 {
+    top: 15px;
+    left: 40px;
+    animation-delay: 0.8s;
+}
+
+.sparkle-2 {
+    top: 55px;
+    left: 120px;
+    animation-delay: 2.1s;
+}
+
+.sparkle-3 {
+    top: 8px;
+    left: 185px;
+    animation-delay: 3.4s;
+}
+
+.sparkle-4 {
+    top: 65px;
+    left: 70px;
+    animation-delay: 1.5s;
+}
+
+.sparkle-5 {
+    top: 40px;
+    left: 25px;
+    animation-delay: 2.8s;
+}
+
+/* Animaciones mejoradas para estilo líneas */
+@keyframes floatEnvelope {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-8px) rotate(1deg); 
+    }
+}
+
+@keyframes openEnvelope {
+    0%, 25% { 
+        transform: translateX(-50%) rotateX(0deg); 
+    }
+    45%, 75% { 
+        transform: translateX(-50%) rotateX(-120deg); 
+    }
+    100% { 
+        transform: translateX(-50%) rotateX(0deg); 
+    }
+}
+
+@keyframes letterReveal {
+    0%, 25% { 
+        transform: translateY(0px); 
+    }
+    45%, 75% { 
+        transform: translateY(-15px); 
+    }
+    100% { 
+        transform: translateY(0px); 
+    }
+}
+
+@keyframes revealHeart {
+    0%, 25% { 
+        transform: translateX(-50%) translateY(0px) scale(0); 
+        opacity: 0;
+    }
+    45% { 
+        transform: translateX(-50%) translateY(-25px) scale(1.2); 
+        opacity: 1;
+    }
+    75% { 
+        transform: translateX(-50%) translateY(-30px) scale(1); 
+        opacity: 1;
+    }
+    100% { 
+        transform: translateX(-50%) translateY(0px) scale(0); 
+        opacity: 0;
+    }
+}
+
+@keyframes sparkleAnimation {
+    0%, 100% { 
+        opacity: 0; 
+        transform: scale(0) rotate(0deg); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.5) rotate(180deg); 
+    }
+}
+
+
+
+@keyframes giftFloat {
+    0%, 100% { 
+        transform: translateY(0px);
+    }
+    50% { 
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Sección de entrada */
+.input-section {
+    background: #fafafa;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #e8d9f3;
+    flex: 1;
+    overflow-y: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-start;
+    min-height: 0;
+}
+
+.section-title {
+    font-family: 'Merriweather', serif;
+    font-size: 1.8em;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.input-name {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid var(--color-tertiary);
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.3s ease;
+    text-align: center;
+}
+
+.input-name:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.1);
+}
+
+.button-add, .button-draw {
+    background: var(--color-button);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.button-add:hover, .button-draw:hover {
+    background: var(--color-button-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(138, 43, 226, 0.3);
+}
+
+.button-draw {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+}
+
+.button-draw img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Listas de nombres arregladas */
+.name-list {
+    list-style: none;
+    margin: 15px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    min-height: 60px;
+    max-height: 400px;
+    overflow-y: visible;
+    border: 1px solid #e8d9f3;
+    border-radius: 8px;
+    background: white;
+}
+
+.result-list {
+    list-style: none;
+    margin: 15px 0;
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-list li {
+    background: #f8f9fa;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    text-align: left;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name-list li:hover {
+    background: #e9ecef;
+    transform: translateX(3px);
+}
+
+.result-list li {
+    background: linear-gradient(135deg, #e8d9f3, #f5f0ff);
+    border: 2px solid var(--color-primary);
+    font-weight: 600;
+    color: var(--color-primary);
+    text-align: center;
+    font-size: 1.1em;
+    padding: 20px 30px;
+    margin: 10px auto;
+    border-radius: 50px;
+    max-width: 350px;
+    box-shadow: 0 3px 10px rgba(106, 13, 173, 0.2);
+    display: inline-block;
+    width: auto;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2em;
+        text-align: center;
+    }
+    
+    .section-title {
+        font-size: 1.3em;
+        text-align: center;
+    }
+    
+    .gift-icon {
+        font-size: 3em;
+    }
+}
+
+/* Contenedores de entrada y botón */
+.input-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.input-name {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #b19cd9;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .input-wrapper {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .input-name {
+        font-size: 16px; /* Evita zoom automático en iOS */
+        padding: 12px;
+    }
+}
+
+.button-container {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .button-container {
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+/* Estilos de botón */
+.button-add, .button-draw {
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: none;
+    background-color: #9370db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+}
+
+.button-add:hover, .button-draw:hover {
+    background-color: #6a0dad;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .button-add, .button-draw {
+        padding: 12px 20px;
+        font-size: 16px;
+        width: 100%;
+        touch-action: manipulation; /* Mejora la respuesta táctil */
+    }
+    
+    .button-draw {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+/* Listas */
+.name-list, .result-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.name-list li, .result-list li {
+    background-color: #e8d9f3;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .name-list li, .result-list li {
+        padding: 12px;
+        font-size: 16px;
+        margin: 8px 0;
+    }
+    
+    .result-list li {
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+    }
+}
+
+/* Estilos adicionales para móviles */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .main-content {
+        padding: 10px;
+        margin: 0;
+    }
+    
+    .main-title {
+        font-size: 1.8em;
+    }
+    
+    .section-title {
+        font-size: 1.2em;
+    }
+    
+    .gift-icon {
+        font-size: 2.5em;
+    }
+}
+
+/* Mejoras para accesibilidad táctil */
+@media (max-width: 768px) {
+    .button-add, .button-draw {
+        min-height: 44px; /* Tamaño mínimo recomendado para toques */
+    }
+    
+    .input-name {
+        min-height: 44px;
+    }
+}
+
+/* Lluvia de emojis de amistad y secreto */
+.emoji-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.emoji {
+    position: absolute;
+    font-size: 2em;
+    animation: emojiRain 8s linear infinite;
+    opacity: 0.8;
+}
+
+.emoji-1 { left: 5%; animation-delay: 0s; }
+.emoji-2 { left: 15%; animation-delay: 1s; }
+.emoji-3 { left: 25%; animation-delay: 2s; }
+.emoji-4 { left: 35%; animation-delay: 0.5s; }
+.emoji-5 { left: 45%; animation-delay: 3s; }
+.emoji-6 { left: 55%; animation-delay: 1.5s; }
+.emoji-7 { left: 65%; animation-delay: 4s; }
+.emoji-8 { left: 75%; animation-delay: 2.5s; }
+.emoji-9 { left: 85%; animation-delay: 5s; }
+.emoji-10 { left: 95%; animation-delay: 3.5s; }
+.emoji-11 { left: 10%; animation-delay: 6s; }
+.emoji-12 { left: 90%; animation-delay: 4.5s; }
+
+@keyframes emojiRain {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(200px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .emoji {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .emoji {
+        font-size: 1em;
+    }
+}
+
+
+
